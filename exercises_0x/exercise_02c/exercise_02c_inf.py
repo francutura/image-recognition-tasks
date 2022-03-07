@@ -12,5 +12,11 @@ except Exception:
 
 img1 = cv2.imread(img1_name, cv2.IMREAD_GRAYSCALE)
 img2 = cv2.imread(img2_name, cv2.IMREAD_GRAYSCALE)
-img3 = cv2.min(img1, img2)
-cv2.imwrite(output_name, img3)
+out_img = img1.copy()
+    out_img.fill(0)
+
+    dimensions = (len(img1[0]), len(img1))
+    for row_idx in range(dimensions[1]):
+        for col_idx in range(dimensions[0]):
+            out_img[row_idx][col_idx] = min(img1[row_idx][col_idx], img2[row_idx][col_idx])
+cv2.imwrite(output_name, out_img)

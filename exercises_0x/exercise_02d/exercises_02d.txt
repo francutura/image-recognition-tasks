@@ -1,0 +1,11 @@
+If considering max(...) operation with any number of parameters:
+
+dilate_B (I)) 		-> N*N max operations
+dilate_C(dilate_D (I))) -> 2 * N*N max operations
+
+
+If considering max(arg1, arg2) operation with two parameters:
+
+
+dilate_B (I)) 		-> N*N*(M*M-1) max operations
+dilate_C(dilate_D (I))) -> 2*N*N*(M-1) max operations
