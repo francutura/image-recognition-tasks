@@ -11,6 +11,7 @@ except Exception:
     exit(1)
 
 img = cv2.imread(img_name, cv2.IMREAD_GRAYSCALE)
+output_img = img.copy()
 
 for x in range(img.shape[0]):
     for y in range(img.shape[1]):
@@ -24,5 +25,4 @@ for x in range(img.shape[0]):
             max_xy = img[coordinate[0], coordinate[1]]
         output_img[x, y] = max_xy
 
-
-cv2.imwrite(output_name, img_eroded)
+cv2.imwrite(output_name, output_img)
