@@ -1,0 +1,20 @@
+O = open(x) increasing, idempotent and anti-extensive.
+C = close(x) increasing, idempotent and extensive.
+
+we have:
+
+C O = C O
+C O = C O O O
+C O <= C O C O
+
+further:
+
+C O = C O
+C O O O = C O
+C O C O >= C O
+
+which gives us:
+
+C O (I) = C O C O (I) for every image I.
+
+Q.E.D.
