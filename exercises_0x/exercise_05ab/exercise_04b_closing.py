@@ -1,6 +1,11 @@
 import cv2
 import sys
-import numpy as np
+from exercise_04a_opening import erosion, dilation
+
+
+def closing(img, i):
+    output_img = dilation(img, i)
+    return erosion(output_img, i)
 
 
 try:
@@ -12,6 +17,6 @@ except Exception:
     exit(1)
 
 img = cv2.imread(img_name, cv2.IMREAD_GRAYSCALE)
-kernel = np.ones((2 * i + 1, 2 * i + 1), np.uint8)
-img_eroded = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel)
+
+img_eroded = closing(img, i)
 cv2.imwrite(output_name, img_eroded)

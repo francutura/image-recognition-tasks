@@ -2,10 +2,11 @@ import cv2
 import sys
 from exercise_04a_opening import erosion, dilation
 
-def closing(img, i):
-  output_img = dilation(img, i)
 
-  return erosion(output_img, i)
+def closing(img, i):
+    output_img = dilation(img, i)
+    return erosion(output_img, i)
+
 
 try:
     i = int(sys.argv[1])

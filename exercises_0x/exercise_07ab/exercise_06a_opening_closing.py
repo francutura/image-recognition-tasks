@@ -1,7 +1,6 @@
 import cv2
 import sys
-import numpy as np
-
+from exercise_06a_closing_opening import opening, closing
 
 try:
     i = int(sys.argv[1])
@@ -13,9 +12,8 @@ except Exception:
 
 img = cv2.imread(img_name, cv2.IMREAD_GRAYSCALE)
 
-kernel = np.ones((2 * i + 1, 2 * i + 1), np.uint8)
 
-img1 = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel)
-img2 = cv2.morphologyEx(img1, cv2.MORPH_OPEN, kernel)
+img1 = closing(img, i)
+img2 = opening(img1, i)
 
 cv2.imwrite(output_name, img2)
