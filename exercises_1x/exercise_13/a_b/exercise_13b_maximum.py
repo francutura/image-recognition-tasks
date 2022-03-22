@@ -9,7 +9,7 @@ def parse_input_file(input_data_filename):
     y = int(data[1].strip())
     connectivity = int(data[2].strip())
 
-    return x, y, connectivity
+    return y, x, connectivity
 
 
 def get_neighbours(coordinate, connectivity, bounds):
@@ -50,7 +50,7 @@ def is_regional_maximum(img, x, y, connectivity):
 
     flatzone_queue = []
     flatzone_queue.append((x, y))
-    tracking_img[y, x] = 1
+    tracking_img[x, y] = 1
 
 
     while flatzone_queue:
